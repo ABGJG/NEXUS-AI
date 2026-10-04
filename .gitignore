@@ -1,0 +1,9 @@
+.hf-venv/
+.cache/
+*.xnnpack_cache
+nexus_api.key
+__pycache__/
+*.pyc
+.env
+gemma-files.json
+*.litertlm
