@@ -1,9 +1,9 @@
 #!/bin/sh
 set -e
 
-PYTHON="${PYTHON:-python}"
+PYTHON="/workspace/.deployhatch-venv/bin/python"
 
-echo "Using Python: $PYTHON"
+echo "Using: $PYTHON"
 "$PYTHON" -c "import huggingface_hub; print('huggingface_hub OK')"
 
 if [ ! -f gemma3-270m-it-q8.litertlm ]; then
