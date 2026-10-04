@@ -3,7 +3,7 @@ import secrets
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import litert_lm
 
-MODEL = "gemma3-1b-it-int4.litertlm"
+MODEL = "gemma3-270m-it-q8.litertlm"
 HOST = "0.0.0.0"
 PORT = 8090
 
@@ -38,7 +38,7 @@ class Handler(BaseHTTPRequestHandler):
             return self.send_json({
                 "object": "list",
                 "data": [{
-                    "id": "nexus-gemma-3-1b",
+                    "id": "nexus-gemma-3-270m",
                     "object": "model",
                     "owned_by": "NEXUS XS"
                 }]
@@ -72,7 +72,7 @@ class Handler(BaseHTTPRequestHandler):
             self.send_json({
                 "id": "nexus-" + secrets.token_hex(8),
                 "object": "chat.completion",
-                "model": data.get("model", "nexus-gemma-3-1b"),
+                "model": data.get("model", "nexus-gemma-3-270m"),
                 "choices": [{
                     "index": 0,
                     "message": {
