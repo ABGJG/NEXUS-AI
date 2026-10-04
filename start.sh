@@ -4,10 +4,13 @@ set -e
 PYTHON="/workspace/.deployhatch-venv/bin/python"
 
 echo "Using: $PYTHON"
+
 "$PYTHON" -c "import huggingface_hub; print('huggingface_hub OK')"
 
-if [ ! -f gemma3-270m-it-q8.litertlm ]; then
-    "$PYTHON" -c "from huggingface_hub import hf_hub_download; hf_hub_download(repo_id='litert-community/gemma-3-270m-it', filename='gemma3-270m-it-q8.litertlm', local_dir='.')"
+if [ ! -f SmolLM2_135M_Instruct.litertlm ]; then
+    echo "Downloading SmolLM2-135M-Instruct..."
+    "$PYTHON" -c "from huggingface_hub import hf_hub_download; hf_hub_download(repo_id='litert-community/SmolLM2-135M-Instruct', filename='SmolLM2_135M_Instruct.litertlm', local_dir='.')"
 fi
 
+echo "Starting NEXUS-AI..."
 exec "$PYTHON" server.py
