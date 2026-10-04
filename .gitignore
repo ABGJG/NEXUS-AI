@@ -7,3 +7,5 @@ __pycache__/
 .env
 gemma-files.json
 *.litertlm
+gemma-files.json
+*.litertlm
